@@ -1,0 +1,16 @@
+name: Code Style Linter  # Workflow名称
+on: [push, pull_request]  # 触发条件：代码推送或PR时运行
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 运行环境
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # 拉取代码
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # 指定Python版本
+      - name: Install dependencies
+        run: pip install -r requirements.txt  # 安装flake8
+      - name: Run linter
+        run: flake8 . --count --show-source --statistics  # 运行Linter检查所有文件
