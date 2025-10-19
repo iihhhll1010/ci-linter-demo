@@ -1,4 +1,4 @@
-name: Code Style Linter  # Workflow名称
+name: CI Pipeline with Linter and Tests  # Workflow名称
 on: [push, pull_request]  # 触发条件：代码推送或PR时运行
 jobs:
   build:
@@ -14,3 +14,5 @@ jobs:
         run: pip install -r requirements.txt  # 安装flake8
       - name: Run linter
         run: flake8 . --count --show-source --statistics  # 运行Linter检查所有文件
+      - name: Run unit tests  # 新增测试步骤
+        run: pytest tests/ --verbose
