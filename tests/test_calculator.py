@@ -1,4 +1,5 @@
 from calculator import add
+from calculator import subtract
 
 
 def test_add_positive():
@@ -11,3 +12,7 @@ def test_add_negative():
 
 def test_add_zero():
     assert add(0, 0) == 0
+
+
+def test_subtract_positive():
+    assert subtract(5, 3) == 2
