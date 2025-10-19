@@ -1,5 +1,5 @@
 # 示例：包含多余空格和过长行
-def  hello():
+def hello():
     print(
         "This line has extra spaces and is intentionally poorly"
         "formatted to demonstrate linter errors."
